@@ -102,5 +102,8 @@ rejected on 60/60 rows. Assessment: **VERIFIED**.
 
 The winning scientific branch is
 [`orx/cumulative-proof-replay-and-evaluator-evidence`](https://github.com/MachineLearning-Nerd/icml26-repro-ppIhZgFCTI-towards-parameter-free-temporal-difference-learning/tree/orx/cumulative-proof-replay-and-evaluator-evidence).
-The release artifact is validated on
-[`orx/final-artifact-validation`](https://github.com/MachineLearning-Nerd/icml26-repro-ppIhZgFCTI-towards-parameter-free-temporal-difference-learning/tree/orx/final-artifact-validation).
+The release artifact is frozen on
+[`orx/publication-manifest-and-final-release-audit`](https://github.com/MachineLearning-Nerd/icml26-repro-ppIhZgFCTI-towards-parameter-free-temporal-difference-learning/tree/orx/publication-manifest-and-final-release-audit),
+and exact Space revision `ca74b23c1429bf2f3ae54320bb7289bcc8fb6b24` is
+independently re-downloaded and checked on
+[`orx/post-publication-exact-revision-verification`](https://github.com/MachineLearning-Nerd/icml26-repro-ppIhZgFCTI-towards-parameter-free-temporal-difference-learning/tree/orx/post-publication-exact-revision-verification).

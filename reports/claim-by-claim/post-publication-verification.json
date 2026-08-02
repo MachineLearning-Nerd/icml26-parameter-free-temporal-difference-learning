@@ -1,0 +1,28 @@
+{
+  "actual_cpu": {
+    "affinity_cpus": 64,
+    "cpu_model": "AMD EPYC 7R13 Processor",
+    "gpu_used": false,
+    "logical_cpus": 64,
+    "selected_flavor": "cpu-upgrade"
+  },
+  "allowlist_complete": true,
+  "canonical_traversal_passed": true,
+  "current_verifier_returncode": 0,
+  "displayed_result_numbers_match_raw": {
+    "claim1": true,
+    "claim2": true,
+    "claim3": true,
+    "claim4": true,
+    "claim5": true
+  },
+  "fresh_directory": true,
+  "job_duration": "2m02s",
+  "manifest_hash_matches": true,
+  "protected_historical_mismatches": [],
+  "revision": "ca74b23c1429bf2f3ae54320bb7289bcc8fb6b24",
+  "run_id": "47b0f5e6-b1b8-4ee1-ad8b-342ccacb2699",
+  "total_runtime_seconds": 103.77879000800021,
+  "upload_hash_mismatches": [],
+  "uploaded_paths_checked": 44
+}
