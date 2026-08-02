@@ -1,0 +1,7 @@
+{
+  "claim_id": "claim1",
+  "paper_anchor": "Theorem 3.4; thm:exp_iid; ar5iv S3.Thmtheorem4",
+  "exact_schedule": "eta_t=((1-gamma)/8) * T^(-t/T)",
+  "machine_contract": "Audit assumptions on three 512-state/64-feature MDPs, run 64 iid trajectories to T=250000, require the explicit finite-T theorem bound to cover every observed last-iterate mean plus its 95% CI, independently check scalar second moments, and reject a constant-step control.",
+  "failure_exit": "python -m td_repro exits nonzero on any failed accepted check"
+}

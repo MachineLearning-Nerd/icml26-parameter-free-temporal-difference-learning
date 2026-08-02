@@ -1,0 +1,6 @@
+{
+  "claim_id": "claim4",
+  "paper_anchor": "Theorem 4.12 discussion immediately after thm:reg_markov",
+  "machine_contract": "Evaluate exp(m/log(1/rho)) on 13 predeclared rho values and distinguish the exact exponential bound factor from the paper's explicitly conjectural proof-artifact interpretation.",
+  "expected_verdict": "BLOCKED unless a sharper machine-checkable proof or assumption-satisfying counterexample resolves the conjecture"
+}

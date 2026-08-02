@@ -1,0 +1,6 @@
+{
+  "claim_id": "claim3",
+  "paper_anchor": "Theorem 4.12; thm:reg_markov; ar5iv S4.Thmtheorem12",
+  "machine_contract": "Trace all eta0 symbols, require identical eta0 across three omega values, reject an omega-injected mutation, and calibrate the first horizon satisfying all exact theorem conditions.",
+  "failure_exit": "python -m td_repro exits nonzero if the independence audit fails"
+}

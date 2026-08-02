@@ -9,7 +9,9 @@ import time
 from datetime import UTC, datetime
 from pathlib import Path
 
+from td_repro.claim1 import verify_claim1
 from td_repro.claim5 import verify_claim5
+from td_repro.theorem_audit import verify_theorem_audits
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -42,7 +44,7 @@ def cpu_allocation() -> dict:
                 model = line.split(":", 1)[1].strip()
                 break
     return {
-        "estimated_cores_required": 1,
+        "estimated_cores_required": 16,
         "selected_backend": "hf",
         "selected_flavor": "cpu-upgrade",
         "logical_cpus": os.cpu_count(),
@@ -59,6 +61,8 @@ def write_json(path: Path, data: dict) -> None:
 
 def main() -> int:
     started = time.perf_counter()
+    claim1 = verify_claim1()
+    theorem_claims = verify_theorem_audits()
     claim5 = verify_claim5()
     runtime = time.perf_counter() - started
     evidence = {
@@ -70,17 +74,23 @@ def main() -> int:
         "platform": platform.platform(),
         "uv_lock_sha256": file_sha256(ROOT / "uv.lock"),
         "compute": cpu_allocation(),
-        "deterministic_seeds": [],
-        "claims": [claim5],
-        "all_claims_passed": claim5["passed"],
+        "deterministic_seeds": claim1["deterministic_seeds"],
+        "claims": [claim1, *theorem_claims, claim5],
+        "all_claims_passed": claim1["passed"] and all(claim["passed"] for claim in theorem_claims) and claim5["passed"],
         "total_runtime_seconds": runtime,
     }
     artifact_dir = ROOT / ".openresearch" / "artifacts" / "claim5"
     write_json(artifact_dir / "raw" / "results.json", evidence)
     write_json(artifact_dir / "independent_checker_output.json", claim5["independent_checker"])
     write_json(artifact_dir / "negative_control_output.json", claim5["negative_control"])
+    for claim in evidence["claims"]:
+        claim_dir = ROOT / ".openresearch" / "artifacts" / claim["claim_id"]
+        write_json(claim_dir / "raw" / "results.json", claim)
+        if "independent_checker" in claim:
+            write_json(claim_dir / "independent_checker_output.json", claim["independent_checker"])
+        if "negative_control" in claim:
+            write_json(claim_dir / "negative_control_output.json", claim["negative_control"])
     print("OPENRESEARCH_EVIDENCE_BEGIN")
     print(json.dumps(evidence, indent=2, sort_keys=True))
     print("OPENRESEARCH_EVIDENCE_END")
     return 0 if evidence["all_claims_passed"] else 1
-
