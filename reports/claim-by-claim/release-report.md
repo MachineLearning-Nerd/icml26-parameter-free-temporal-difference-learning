@@ -4,21 +4,28 @@
 
 # Release forecast
 
+**Live judge result:** `6/10` at 2026-08-02T09:42:44+00:00 on published
+revision `ca74b23c1429bf2f3ae54320bb7289bcc8fb6b24`. The pre-publication forecast
+above was optimistic; the actual verdicts were VERIFIED, TOY, TOY,
+INCONCLUSIVE, VERIFIED.
+
 | Claim | Current points | Possible points | Confidence | Evidence status | Basis and remaining risk |
 | --- | ---: | ---: | --- | --- | --- |
-| 1 | 1 | 2 | HIGH | VERIFIED | Exact schedule, 512×64 scale, 64 seeds, explicit-bound replay, independent moments, failing control; “optimal” terminology depends on cited lower-bound literature |
-| 2 | 1 | 2 | HIGH | VERIFIED | Exact eta0 changes linearly with omega and omega-deleted control fails; conditional asymptotic rate is not directly iterated |
-| 3 | 1 | 2 | HIGH | VERIFIED | Exact data flow excludes omega, matched mutation fails, named update has no projection/averaging; conditional asymptotic rate is not directly iterated |
-| 4 | 1 | 1 | MEDIUM | BLOCKED | Exponential factor verified over tau 5–598, but the paper explicitly labels proof-artifact status a conjecture |
-| 5 | 1 | 2 | HIGH | VERIFIED | Exhaustive initial states on 12 chains, 60 boundary rows, independent TV checker, off-by-one control |
+| 1 | 2 | 2 | HIGH | VERIFIED | Live judge accepted the exact schedule, 512×64 scale, 64 seeds, bound replay, independent moments, and failing control |
+| 2 | 1 | 2 | HIGH | TOY (live judge) | Exact eta0 dependency is machine-checked, but no trajectory run reaches the theorem-prescribed schedule and conditions |
+| 3 | 1 | 2 | HIGH | TOY (live judge) | Exact omega-free data flow is machine-checked, but no trajectory run reaches the theorem-prescribed schedule and conditions |
+| 4 | 0 | 1 | MEDIUM | INCONCLUSIVE (live judge); BLOCKED internally | Exponential factor is verified, but proof-artifact causality is explicitly conjectural |
+| 5 | 2 | 2 | HIGH | VERIFIED | Live judge accepted exhaustive initial states on 12 chains, 60 boundary rows, independent TV checker, and off-by-one control |
 
-Current total score: `5/10`.
-Conservative projected total score range: `7–9/10`.
-Best-supported possible total: `9/10`, only as a forecast.
+Current live judged score: `6/10`.
+Pre-publication projected range: `7–9/10`.
+Pre-publication best-supported possible total: `9/10`; this was a forecast and
+was not achieved.
 
-Claims 1, 2, 3, and 5 materially changed since the previous verdict. Claim 4
-remains BLOCKED because resolving “proof artifact” requires a sharper proof,
-lower bound, or assumption-satisfying counterexample.
+Claims 1 and 5 moved from TOY to VERIFIED. Claims 2 and 3 remained TOY because
+formula inspection did not substitute for prescribed-schedule trajectories.
+Claim 4 moved from TOY to INCONCLUSIVE; resolving it still requires a sharper
+proof, lower bound, or assumption-satisfying counterexample.
 
 ## Publication state
 
@@ -26,8 +33,9 @@ Baseline HF Head and Judge Head were both
 `c281038c74481058728ae953bfe0c3707b6c4f5f`; the previous live judged score
 remains `5/10`. The text-only Hugging Face API upload used the exact allowlist
 and returned Space revision
-`ca74b23c1429bf2f3ae54320bb7289bcc8fb6b24`. This revision is awaiting the
-live judge; no score increase is claimed.
+`ca74b23c1429bf2f3ae54320bb7289bcc8fb6b24`. The live judge evaluated that
+exact revision at 2026-08-02T09:42:44+00:00 and recorded the 6/10 breakdown
+above.
 
 Winning experiment branch:
 `orx/post-publication-exact-revision-verification`, Git

@@ -9,12 +9,12 @@ strongest result is Theorem 3.4: exact horizon-specific TD(0), on three
 `-1.089,-1.085,-1.068`; the paper predicts a `ln²(T)/T` variance form.
 The constant-step control stalled near `0.119` with slope `-0.005`.
 
-Claims 2 and 3 are verified at their exact theorem prescriptions: standard
-Markovian eta0 changes linearly with omega, while regularized eta0 is invariant.
-No practical multiplier was substituted. Claim 4 remains **BLOCKED** because
-the paper itself calls the proof-artifact interpretation a conjecture. Claim 5
-is verified on 12 refresh chains up to 512 states with every point-mass initial
-distribution exhausted.
+**Live judge result (2026-08-02): 6/10.** Claims 1 and 5 are VERIFIED; Claims 2
+and 3 remain TOY because exact formula/data-flow checks do not replace an actual
+trajectory run at the theorem-prescribed horizons; Claim 4 is INCONCLUSIVE
+because the paper itself calls the proof-artifact interpretation a conjecture.
+The campaign's internal contracts still verify the exact omega dependency and
+removal in Claims 2 and 3, but they did not earn full empirical credit.
 
 [Detailed illustrated report](reports/claim-by-claim/report.md) ·
 [release forecast](reports/claim-by-claim/release-report.md) ·

@@ -93,3 +93,8 @@ The post-publication fixed-command run then used only standard-library HTTPS to
 download that exact revision into a fresh HF job directory. It verified the
 published manifest, the historical subset, canonical traversal, current
 verifier, and displayed/raw numerical parity before returning 0.
+
+The live verdict dataset was then fetched at revision
+`c12dcbc3a096204044b4b901a211102c2becda7c` and selected strictly by
+`space_id == "DineshAI/ppIhZgFCTI"`. Its exact-Space-revision verdicts were
+VERIFIED, TOY, TOY, INCONCLUSIVE, VERIFIED, giving the current 6/10 score.

@@ -18,6 +18,19 @@
   },
   "fresh_directory": true,
   "job_duration": "2m02s",
+  "live_judge": {
+    "claim_verdicts": [
+      "verified",
+      "toy",
+      "toy",
+      "inconclusive",
+      "verified"
+    ],
+    "dataset_revision": "c12dcbc3a096204044b4b901a211102c2becda7c",
+    "judged_at": "2026-08-02T09:42:44+00:00",
+    "score": "6/10",
+    "space_id": "DineshAI/ppIhZgFCTI"
+  },
   "manifest_hash_matches": true,
   "protected_historical_mismatches": [],
   "revision": "ca74b23c1429bf2f3ae54320bb7289bcc8fb6b24",
