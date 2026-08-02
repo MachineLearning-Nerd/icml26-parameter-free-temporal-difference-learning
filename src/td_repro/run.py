@@ -12,6 +12,7 @@ from pathlib import Path
 
 from td_repro.claim1 import verify_claim1
 from td_repro.claim5 import verify_claim5
+from td_repro.figures import make_figures
 from td_repro.theorem_audit import verify_theorem_audits
 
 
@@ -93,6 +94,7 @@ def main() -> int:
         "all_claims_passed": claim1["passed"] and all(claim["passed"] for claim in theorem_claims) and claim5["passed"] and visible_verifier.returncode == 0,
         "total_runtime_seconds": runtime,
     }
+    evidence["report_figures_svg_base64"] = make_figures(evidence["claims"])
     artifact_dir = ROOT / ".openresearch" / "artifacts" / "claim5"
     write_json(artifact_dir / "raw" / "results.json", evidence)
     write_json(artifact_dir / "independent_checker_output.json", claim5["independent_checker"])
