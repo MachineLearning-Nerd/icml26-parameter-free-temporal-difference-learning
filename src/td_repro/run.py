@@ -13,6 +13,7 @@ from pathlib import Path
 from td_repro.claim1 import verify_claim1
 from td_repro.claim5 import verify_claim5
 from td_repro.figures import make_figures
+from td_repro.post_publication import verify_published_revision
 from td_repro.theorem_audit import verify_theorem_audits
 
 
@@ -86,6 +87,7 @@ def main() -> int:
             "stdout": result.stdout.strip(),
             "stderr": result.stderr.strip(),
         }
+    post_publication = verify_published_revision()
     runtime = time.perf_counter() - started
     evidence = {
         "paper": "arXiv:2603.02577",
@@ -105,7 +107,8 @@ def main() -> int:
             "stderr": visible_verifier.stderr.strip(),
         },
         "artifact_validators": artifact_validators,
-        "all_claims_passed": claim1["passed"] and all(claim["passed"] for claim in theorem_claims) and claim5["passed"] and visible_verifier.returncode == 0 and all(item["returncode"] == 0 for item in artifact_validators.values()),
+        "post_publication_verification": post_publication,
+        "all_claims_passed": claim1["passed"] and all(claim["passed"] for claim in theorem_claims) and claim5["passed"] and visible_verifier.returncode == 0 and all(item["returncode"] == 0 for item in artifact_validators.values()) and post_publication["passed"],
         "total_runtime_seconds": runtime,
     }
     evidence["report_figures_svg_base64"] = make_figures(evidence["claims"])
