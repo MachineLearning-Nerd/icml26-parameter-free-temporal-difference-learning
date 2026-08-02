@@ -3,7 +3,7 @@ name = "parameter-free-td-reproduction"
 version = "0.1.0"
 requires-python = "==3.12.*"
 dependencies = [
-  "marimo==0.14.17",
+  "marimo==0.23.14",
   "matplotlib==3.10.3",
   "numpy==2.2.6",
 ]
