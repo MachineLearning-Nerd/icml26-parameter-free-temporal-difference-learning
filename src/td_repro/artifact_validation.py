@@ -109,6 +109,40 @@ def validate_upload_allowlist() -> dict:
     return {"paths": paths, "missing": missing, "non_text": non_text, "sha256": hashes, "passed": not missing and not non_text and len(paths) == len(set(paths))}
 
 
+def validate_release_manifest() -> dict:
+    allowlist = (SPACE / "evidence" / "release" / "upload-allowlist.txt").read_text().splitlines()
+    manifest_relative = "evidence/release/upload-manifest.sha256"
+    expected_paths = {path for path in allowlist if path and path != manifest_relative}
+    manifest = SPACE / manifest_relative
+    if not manifest.exists():
+        return {"missing_manifest": True, "missing": sorted(expected_paths), "unexpected": [], "hash_mismatches": [], "passed": False}
+
+    entries = {}
+    malformed = []
+    for line in manifest.read_text().splitlines():
+        try:
+            digest, relative = line.split("  ", 1)
+        except ValueError:
+            malformed.append(line)
+            continue
+        entries[relative] = digest
+
+    missing = sorted(expected_paths - entries.keys())
+    unexpected = sorted(entries.keys() - expected_paths)
+    mismatched = sorted(
+        relative for relative in expected_paths & entries.keys() if sha256(SPACE / relative) != entries[relative]
+    )
+    passed = not malformed and not missing and not unexpected and not mismatched
+    return {
+        "missing_manifest": False,
+        "malformed": malformed,
+        "missing": missing,
+        "unexpected": unexpected,
+        "hash_mismatches": mismatched,
+        "passed": passed,
+    }
+
+
 def main() -> int:
     checks = {
         "protected_subset": validate_protected_subset(),
@@ -117,6 +151,7 @@ def main() -> int:
         "figures": validate_figures(),
         "secret_scan": validate_no_secrets(),
         "upload_allowlist": validate_upload_allowlist(),
+        "release_manifest": validate_release_manifest(),
     }
     passed = all(check["passed"] for check in checks.values())
     print(json.dumps({"passed": passed, "checks": checks}, indent=2, sort_keys=True))
