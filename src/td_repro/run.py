@@ -1,0 +1,86 @@
+from __future__ import annotations
+
+import hashlib
+import json
+import os
+import platform
+import subprocess
+import time
+from datetime import UTC, datetime
+from pathlib import Path
+
+from td_repro.claim5 import verify_claim5
+
+
+ROOT = Path(__file__).resolve().parents[2]
+FIXED_COMMAND = "uv sync --frozen && uv run --no-sync python -m td_repro"
+
+
+def file_sha256(path: Path) -> str:
+    digest = hashlib.sha256()
+    with path.open("rb") as handle:
+        for block in iter(lambda: handle.read(1024 * 1024), b""):
+            digest.update(block)
+    return digest.hexdigest()
+
+
+def git_sha() -> str:
+    return subprocess.check_output(
+        ["git", "rev-parse", "HEAD"], cwd=ROOT, text=True
+    ).strip()
+
+
+def cpu_allocation() -> dict:
+    affinity = None
+    if hasattr(os, "sched_getaffinity"):
+        affinity = len(os.sched_getaffinity(0))
+    model = "unknown"
+    cpuinfo = Path("/proc/cpuinfo")
+    if cpuinfo.exists():
+        for line in cpuinfo.read_text().splitlines():
+            if line.lower().startswith("model name"):
+                model = line.split(":", 1)[1].strip()
+                break
+    return {
+        "estimated_cores_required": 1,
+        "selected_backend": "hf",
+        "selected_flavor": "cpu-upgrade",
+        "logical_cpus": os.cpu_count(),
+        "affinity_cpus": affinity,
+        "cpu_model": model,
+        "gpu_used": False,
+    }
+
+
+def write_json(path: Path, data: dict) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(data, indent=2, sort_keys=True) + "\n")
+
+
+def main() -> int:
+    started = time.perf_counter()
+    claim5 = verify_claim5()
+    runtime = time.perf_counter() - started
+    evidence = {
+        "paper": "arXiv:2603.02577",
+        "run_started_utc": datetime.now(UTC).isoformat(),
+        "git_sha": git_sha(),
+        "fixed_command": FIXED_COMMAND,
+        "python": platform.python_version(),
+        "platform": platform.platform(),
+        "uv_lock_sha256": file_sha256(ROOT / "uv.lock"),
+        "compute": cpu_allocation(),
+        "deterministic_seeds": [],
+        "claims": [claim5],
+        "all_claims_passed": claim5["passed"],
+        "total_runtime_seconds": runtime,
+    }
+    artifact_dir = ROOT / ".openresearch" / "artifacts" / "claim5"
+    write_json(artifact_dir / "raw" / "results.json", evidence)
+    write_json(artifact_dir / "independent_checker_output.json", claim5["independent_checker"])
+    write_json(artifact_dir / "negative_control_output.json", claim5["negative_control"])
+    print("OPENRESEARCH_EVIDENCE_BEGIN")
+    print(json.dumps(evidence, indent=2, sort_keys=True))
+    print("OPENRESEARCH_EVIDENCE_END")
+    return 0 if evidence["all_claims_passed"] else 1
+

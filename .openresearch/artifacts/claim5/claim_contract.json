@@ -1,0 +1,15 @@
+{
+  "claim_id": "claim5",
+  "paper_anchor": "Definition 4.1; LaTeX label def:reg_mixing_time; ar5iv anchor S4.Thmtheorem1",
+  "exact_statement": "Define tau_delta = min{t in N_0 | m rho^t <= delta}, where delta in (0,1), under sup_mu0 d_TV(P_pi^t mu_0, mu_pi) <= m rho^t for all t in N_0.",
+  "domain": "finite irreducible aperiodic Markov chains with geometric TV envelope constants m>0 and rho in (0,1)",
+  "quantifiers": [
+    "all initial state distributions in the worst-case TV deviation",
+    "all t in N_0",
+    "delta in (0,1)"
+  ],
+  "machine_contract": "On refresh chains P=rho I+(1-rho)1 pi^T, exhaust every delta-state initial distribution and require direct worst-case TV first crossing to equal min{t:m rho^t<=delta} for the predeclared n/rho/delta grid.",
+  "pass_condition": "All 60 rows agree, every chain assumption audit passes, and the off-by-one control is rejected on all 60 rows.",
+  "failure_exit": "python -m td_repro exits nonzero if the contract fails"
+}
+

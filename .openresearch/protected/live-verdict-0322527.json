@@ -1,0 +1,39 @@
+[
+  {
+    "space_id": "DineshAI/ppIhZgFCTI",
+    "orid": "ppIhZgFCTI",
+    "paper_title": "Towards Parameter-Free Temporal Difference Learning",
+    "sha": "c281038c74481058728ae953bfe0c3707b6c4f5f",
+    "judged_at": "2026-07-30T12:44:17+00:00",
+    "model": "zai-org/GLM-5.2",
+    "claims": [
+      {
+        "claim": "Under i.i.d. sampling with an exponential step-size schedule, TD(0) attains the optimal last-iterate bias-variance trade-off without requiring knowledge of the problem-dependent constant omega (Theorem 3.4, Section 3).",
+        "verdict": "toy",
+        "evidence": "TD(0) with exponential step-size on a small MDP (n=6, d=4) shows MSE log-log slope -0.94 across T=200..4000 with 30 seeds, consistent with ~ln²T/T rate, and the schedule uses only γ and T (not ω). However, n=6,d=4 is a clearly simplified setup, not a full-scale reproduction of the theoretical claim."
+      },
+      {
+        "claim": "Under Markovian sampling, standard TD(0) with the same exponential step-size schedule achieves a comparable convergence rate but still requires knowledge of omega to set the initial step-size eta_0 (Theorem 4.10, Section 4.1).",
+        "verdict": "toy",
+        "evidence": "Markovian TD(0) on the same small MDP (n=6, d=4) shows convergence (slope -0.95, 30 seeds), but the experiment uses η₀=1/(8(1-γ)) without ω and does not test what happens when ω is unknown or misestimated, so the 'requires ω' aspect of the claim is not substantiated by the experiment."
+      },
+      {
+        "claim": "A regularized variant of TD(0) with exponential step-sizes and regularization parameter lambda = 1/sqrt(T) removes the dependence on omega in the Markovian setting, without needing projections or iterate averaging (Theorem 4.12, Section 4.2).",
+        "verdict": "toy",
+        "evidence": "Regularized TD(0) with λ=1/√T converges on the small MDP (slope -0.72, 30 seeds) without using ω, but the experiment does not compare against a variant that requires ω to demonstrate that the regularization specifically removes the dependence, and the MDP is toy-scale (n=6, d=4)."
+      },
+      {
+        "claim": "The regularized TD(0) analysis in the Markovian setting introduces exponential dependence on the mixing time tau_mix as an artifact of the proof technique (Theorem 4.12, Section 4.2).",
+        "verdict": "toy",
+        "evidence": "Only two mixing configurations are tested (fast: τ_mix=5, err=0.0367; slow: τ_mix=116, err=20.3886), which shows error increases with τ_mix but is insufficient to demonstrate the specific exponential dependence claimed as a proof artifact; the slow-chain error of 20.39 suggests divergence rather than controlled scaling."
+      },
+      {
+        "claim": "Mixing time tau_mix is defined as the first time the state distribution's deviation from stationarity falls below a threshold delta (Definition 4.1).",
+        "verdict": "toy",
+        "evidence": "The formula τ_δ=min{t: mρ^t≤δ} is checked against direct TV-distance simulation on a small 6-state chain, matching at δ=0.05 (t≈3 vs formula τ=3), but this is a straightforward sanity check of a mathematical definition on a toy-sized chain."
+      }
+    ],
+    "overall": "The logbook provides real numerical experiments (25-30 seeds, multiple T values) on a very small MDP (n=6, d=4) that are broadly consistent with the paper's theoretical claims, but the scale is clearly toy and several nuanced aspects (ω-dependence, exponential mixing-time scaling) are not convincingly demonstrated by the experiments.",
+    "quality": "medium"
+  }
+]
