@@ -1,0 +1,8 @@
+{
+  "mutation": "return tau_delta + 1",
+  "expected": "rejected on every row",
+  "rejections": 60,
+  "tests": 60,
+  "passed_as_control": true,
+  "run_id": "5639f97d-bb2e-47f6-878c-5f728815dcd5"
+}

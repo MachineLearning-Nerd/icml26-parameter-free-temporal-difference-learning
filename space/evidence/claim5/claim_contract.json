@@ -1,0 +1,9 @@
+{
+  "claim_id": "claim5",
+  "paper_anchor": "Definition 4.1; LaTeX label def:reg_mixing_time; ar5iv S4.Thmtheorem1",
+  "exact_statement": "tau_delta = min{t in N_0: m rho^t <= delta}, delta in (0,1), under sup_mu0 d_TV(P_pi^t mu_0, mu_pi) <= m rho^t for all t in N_0",
+  "domain": "finite irreducible aperiodic Markov chains with m>0 and rho in (0,1)",
+  "machine_contract": "Exhaust every point-mass initial distribution on the predeclared refresh-chain grid and require direct worst-case TV first crossing to equal the definition",
+  "pass_condition": "60/60 rows agree, 12/12 assumption audits pass, and tau+1 is rejected on 60/60 rows",
+  "failure_exit": "claim5_verifier.py exits nonzero"
+}

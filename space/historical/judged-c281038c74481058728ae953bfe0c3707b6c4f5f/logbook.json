@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "title": "Repro - Parameter-Free TD Learning",
+  "emoji": "🎯",
+  "space_id": "DineshAI/ppIhZgFCTI",
+  "paper": null,
+  "tags": [
+    "icml2026-repro",
+    "paper-ppIhZgFCTI"
+  ],
+  "updated_at": "2026-07-30T08:11:26+00:00",
+  "root": {
+    "slug": "index",
+    "title": "Repro - Parameter-Free TD Learning",
+    "file": "pages/index.md",
+    "children": [
+      {"slug":"overview","title":"overview","file":"pages/overview/page.md","children":[]},
+      {"slug":"claims","title":"claims","file":"pages/claims/page.md","children":[]},
+      {"slug":"evidence","title":"evidence","file":"pages/evidence/page.md","children":[]},
+      {"slug":"conclusion","title":"conclusion","file":"pages/conclusion/page.md","children":[]},
+      {"slug":"verification-run","title":"verification-run","file":"pages/verification-run/page.md","children":[]}
+    ]
+  },
+  "agent_view_tokens": 2775,
+  "revision": "1785399086934880352"
+}

@@ -15,4 +15,8 @@ tags:
 
 # Repro - Parameter-Free TD Learning
 
-An open experiment logbook, published with [Trackio](https://github.com/gradio-app/trackio).
+Current verification starts at **[Claim-by-claim reproduction](#/current)**.
+
+The files from judged revision `c281038c74481058728ae953bfe0c3707b6c4f5f`
+remain reachable under **Historical rejected baseline**. That historical verifier
+used a six-state setup and is not the current verifier.

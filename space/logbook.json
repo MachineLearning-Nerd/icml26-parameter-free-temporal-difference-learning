@@ -8,39 +8,45 @@
     "icml2026-repro",
     "paper-ppIhZgFCTI"
   ],
-  "updated_at": "2026-07-30T08:11:26+00:00",
+  "updated_at": "2026-08-02T08:26:00+00:00",
   "root": {
     "slug": "index",
     "title": "Repro - Parameter-Free TD Learning",
-    "file": "pages/index.md",
+    "file": "pages/current/index.md",
     "children": [
       {
+        "slug": "current-claim-5",
+        "title": "Current verification — Claim 5",
+        "file": "pages/current/claim-5.md",
+        "children": []
+      },
+      {
         "slug": "overview",
-        "title": "overview",
+        "title": "Historical rejected baseline — overview",
         "file": "pages/overview/page.md",
         "children": []
       },
       {
         "slug": "claims",
-        "title": "claims",
+        "title": "Historical rejected baseline — claims",
         "file": "pages/claims/page.md",
         "children": []
       },
       {
         "slug": "evidence",
-        "title": "evidence",
+        "title": "Historical rejected baseline — evidence",
         "file": "pages/evidence/page.md",
         "children": []
       },
       {
         "slug": "conclusion",
-        "title": "conclusion",
+        "title": "Historical rejected baseline — conclusion",
         "file": "pages/conclusion/page.md",
         "children": []
       },
       {
         "slug": "verification-run",
-        "title": "verification-run",
+        "title": "Historical rejected baseline — verification run",
         "file": "pages/verification-run/page.md",
         "children": []
       }
