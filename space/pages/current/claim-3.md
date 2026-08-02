@@ -3,6 +3,9 @@
 **Verdict: VERIFIED for the exact parameter-removal and algorithm-structure
 claim. Confidence: HIGH.**
 
+Source: arXiv:2603.02577, Theorem 4.12, `thm:reg_markov`, ar5iv
+`S4.Thmtheorem12`; audited HTML SHA-256 `028bf78be98345c09a3718c4152a6fa5e3c8c9edf11e4540cf07af05e3988fd6`.
+
 Theorem 4.12 sets `lambda=1/sqrt(T)` and
 `eta0=lambda/[C ln^2(T)+C'+8+2lambda^2]`. Its data-flow symbols are only
 `T`, `lambda`, `C(lambda)`, and `C'(lambda)`; omega is unreachable. At
@@ -19,7 +22,8 @@ rho 0.6/0.9 and `10^59.8180` for rho 0.99. Direct iteration is unavailable,
 so no substituted practical step size is used to claim convergence.
 
 [Raw JSON](https://huggingface.co/spaces/DineshAI/ppIhZgFCTI/resolve/main/evidence/claim3/results.json) ·
-[current verifier](https://huggingface.co/spaces/DineshAI/ppIhZgFCTI/resolve/main/code/current_verifier.py).
+[current verifier](https://huggingface.co/spaces/DineshAI/ppIhZgFCTI/resolve/main/code/current_verifier.py) ·
+[formula/horizon source](https://huggingface.co/spaces/DineshAI/ppIhZgFCTI/resolve/main/code/theorem_audit.py).
 
 Command and compute are identical to Claim 1. Run `95f8445d-21d1-417d-aa5e-bdf97e5a0a84`,
 Git `b592c39`, HF `cpu-upgrade`, 64 actual CPUs, no GPU.

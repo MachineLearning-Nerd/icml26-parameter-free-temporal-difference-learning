@@ -1,0 +1,10 @@
+{
+  "verdict": "BLOCKED",
+  "exact_factor_verified": true,
+  "rows": 13,
+  "tau_range": [5, 598],
+  "log10_factor_range": [0.6253013863366086, 86.4682845943787],
+  "negative_control": {"mutation": "replace exp(m/log(1/rho)) by a constant", "rejected": true},
+  "blocked_reason": "paper explicitly labels proof-artifact status a conjecture",
+  "run_id": "95f8445d-21d1-417d-aa5e-bdf97e5a0a84"
+}

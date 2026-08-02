@@ -1,0 +1,22 @@
+{
+  "verdict": "PASS",
+  "method": "independent symbolic replay from the stated TD lemmas through the X/Y helper bounds",
+  "steps": [
+    "norm expansion coefficients 1,2,1",
+    "alignment and gradient-norm lemma substitution",
+    "2 eta c - 8 eta^2 >= eta c for eta <= c/8",
+    "value error >= omega times parameter error",
+    "1-x <= exp(-x)",
+    "X geometric-sum lower bound",
+    "max x^2 exp(-x)=4 exp(-2) for Y bound",
+    "eta0 cancels from the variance coefficient"
+  ],
+  "minimum_X_stress_slack": 0.46203216424663207,
+  "minimum_Y_stress_slack": 6.5823461326174986e-6,
+  "source_deviation": {
+    "paper_text": "product over i with alpha^t",
+    "corrected_replay": "product over i with alpha^i",
+    "assessment": "index typo; the immediately following paper line uses alpha^i"
+  },
+  "run_id": "5f4a722f-7c0c-487d-9e7c-42102eef4a88"
+}

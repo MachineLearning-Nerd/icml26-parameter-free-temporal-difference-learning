@@ -1,0 +1,11 @@
+{
+  "verdict": "VERIFIED",
+  "formula": "lambda=1/sqrt(T); eta0=lambda/[C ln^2(T)+C'+8+2lambda^2]",
+  "T": 1000000,
+  "omega": [0.02, 0.01, 0.005],
+  "eta0": [8.441694796263891e-12, 8.441694796263891e-12, 8.441694796263891e-12],
+  "omega_reachable_in_data_flow": false,
+  "first_feasible_log10_T": {"rho_0.6": 18.059832584667284, "rho_0.9": 18.059832584667284, "rho_0.99": 59.81795448217589},
+  "negative_control": {"mutation": "multiply eta0 by omega", "distinct_outputs": 3, "passed": true},
+  "run_id": "95f8445d-21d1-417d-aa5e-bdf97e5a0a84"
+}

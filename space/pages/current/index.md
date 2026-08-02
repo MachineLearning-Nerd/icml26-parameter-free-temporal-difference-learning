@@ -4,6 +4,11 @@ This is the canonical evaluator entrypoint for the current campaign. Evidence is
 accepted only when a committed verifier exits nonzero on failure, its independent
 checker agrees, and a deliberately wrong control is rejected.
 
+![Headline TD scaling](https://huggingface.co/spaces/DineshAI/ppIhZgFCTI/resolve/main/images/headline_td_scaling.svg)
+
+[Illustrated report on GitHub](https://github.com/MachineLearning-Nerd/icml26-repro-ppIhZgFCTI-towards-parameter-free-temporal-difference-learning/blob/main/reports/claim-by-claim/report.md) ·
+[tutorial notebook](https://github.com/MachineLearning-Nerd/icml26-repro-ppIhZgFCTI-towards-parameter-free-temporal-difference-learning/blob/main/notebooks/td_reproduction.py)
+
 ## Current status
 
 | Claim | Canonical page | Status | Scope |

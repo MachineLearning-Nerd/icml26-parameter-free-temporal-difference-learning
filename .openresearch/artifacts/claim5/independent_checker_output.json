@@ -1,0 +1,7 @@
+{
+  "method": "evolve every point-mass distribution with mu_(t+1)=rho*mu_t+(1-rho)*uniform and compute worst-case TV",
+  "max_abs_closed_form_tv_error": 5.583641188300348e-17,
+  "rows_checked": 60,
+  "passed": true,
+  "run_id": "5639f97d-bb2e-47f6-878c-5f728815dcd5"
+}

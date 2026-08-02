@@ -1,0 +1,6 @@
+{
+  "claim_id": "claim2",
+  "paper_anchor": "Theorem 4.10; thm:exp_markov; ar5iv S4.Thmtheorem10",
+  "machine_contract": "Evaluate eta0 for three omega values, require eta0 ratios to equal omega ratios, reject the omega-deleted formula, and independently find first feasible horizons for every exact theorem condition.",
+  "failure_exit": "python -m td_repro exits nonzero if the dependency audit fails"
+}

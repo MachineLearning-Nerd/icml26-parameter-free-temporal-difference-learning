@@ -1,7 +1,58 @@
 # Towards Parameter-Free Temporal Difference Learning — reproduction
 
-This branch establishes the immutable baseline for a claim-by-claim reproduction of arXiv:2603.02577. The first scientific contract checks Definition 4.1 on exact refresh chains at `n=32,128,512`; results remain pending until the fixed command runs on Hugging Face `cpu-upgrade`.
+![Exact exponential schedule converges while the control stalls](reports/claim-by-claim/images/headline_td_scaling.svg)
 
-Fixed command: `uv sync --frozen && uv run --no-sync python -m td_repro`
+This repository reproduces the five judged claims of arXiv:2603.02577. The
+strongest result is Theorem 3.4: exact horizon-specific TD(0), on three
+512-state/64-feature MDPs with 64 seeds, reduced last-iterate MSE from about
+`0.40` at `T=5,000` to `0.0066–0.0074` at `T=250,000`, with slopes
+`-1.089,-1.085,-1.068`; the paper predicts a `ln²(T)/T` variance form.
+The constant-step control stalled near `0.119` with slope `-0.005`.
 
-The protected judged Space revision is mirrored under `space/` without deleting or rewriting historical files. Current evaluator pages will be added only after their evidence has run remotely.
+Claims 2 and 3 are verified at their exact theorem prescriptions: standard
+Markovian eta0 changes linearly with omega, while regularized eta0 is invariant.
+No practical multiplier was substituted. Claim 4 remains **BLOCKED** because
+the paper itself calls the proof-artifact interpretation a conjecture. Claim 5
+is verified on 12 refresh chains up to 512 states with every point-mass initial
+distribution exhausted.
+
+[Detailed illustrated report](reports/claim-by-claim/report.md) ·
+[release forecast](reports/claim-by-claim/release-report.md) ·
+[raw evidence](space/evidence) ·
+[tutorial notebook](notebooks/td_reproduction.py)
+
+[![Open in molab](https://marimo.io/molab-shield.svg)](https://molab.marimo.io/github/MachineLearning-Nerd/icml26-repro-ppIhZgFCTI-towards-parameter-free-temporal-difference-learning/blob/main/notebooks/td_reproduction.py)
+
+## Reproduction scope
+
+Paper schedule for Claim 1: `eta0=(1-gamma)/8`, not the reciprocal used by the
+historical rejected baseline. The full-dimensional run uses HF `cpu-upgrade`
+only; no GPU or local scientific compute. Exact Markovian theorem conditions
+first become feasible around `10^11–10^60` iterations, so those claims are
+verified as exact dependency/data-flow statements and their unmeasured
+conditional convergence regimes are disclosed.
+
+## Experiment log
+
+| Branch / experiment | Purpose or change | Exact run command | Assessment / outcome | Compute |
+| --- | --- | --- | --- | --- |
+| `main` | Publication surface | Not run as an experiment (publication surface) | Mirrors the winning report and Space text | — |
+| [`orx/baseline-exact-definition-4-1-contract`](https://github.com/MachineLearning-Nerd/icml26-repro-ppIhZgFCTI-towards-parameter-free-temporal-difference-learning/tree/orx/baseline-exact-definition-4-1-contract) | Exact Claim 5 baseline | `uv sync --frozen && uv run --no-sync python -m td_repro` | VERIFIED, 60/60; off-by-one rejected 60/60 | HF cpu-upgrade, no GPU, 21s job |
+| [`orx/claims-1-4-theorem-calibrated-cumulative-suite`](https://github.com/MachineLearning-Nerd/icml26-repro-ppIhZgFCTI-towards-parameter-free-temporal-difference-learning/tree/orx/claims-1-4-theorem-calibrated-cumulative-suite) | Full-dimensional Claim 1 and exact Claims 2–4 audits | `uv sync --frozen && uv run --no-sync python -m td_repro` | Claims 1–3 VERIFIED; Claim 4 BLOCKED; Claim 5 regression passes | HF cpu-upgrade, no GPU, 2m38s job |
+| [`orx/cumulative-proof-replay-and-evaluator-evidence`](https://github.com/MachineLearning-Nerd/icml26-repro-ppIhZgFCTI-towards-parameter-free-temporal-difference-learning/tree/orx/cumulative-proof-replay-and-evaluator-evidence) | Proof replay and evaluator-visible artifact | `uv sync --frozen && uv run --no-sync python -m td_repro` | All scientific checks and Space verifier pass | HF cpu-upgrade, no GPU, 2m44s job |
+| [`orx/final-artifact-validation`](https://github.com/MachineLearning-Nerd/icml26-repro-ppIhZgFCTI-towards-parameter-free-temporal-difference-learning/tree/orx/final-artifact-validation) | Final report, notebook, manifests, blind traversal | `uv sync --frozen && uv run --no-sync python -m td_repro` | Pending final release validation | HF cpu-upgrade, no GPU |
+
+## Run locally for inspection
+
+Formal evidence was generated remotely. To inspect the tutorial:
+
+```bash
+uv sync --frozen
+uv run marimo edit notebooks/td_reproduction.py
+```
+
+The fixed formal command is:
+
+```bash
+uv sync --frozen && uv run --no-sync python -m td_repro
+```

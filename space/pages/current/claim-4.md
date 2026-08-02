@@ -2,6 +2,9 @@
 
 **Verdict: BLOCKED. Confidence: MEDIUM that BLOCKED is the only faithful verdict.**
 
+Source: arXiv:2603.02577, discussion immediately after Theorem 4.12,
+`thm:reg_markov`; audited HTML SHA-256 `028bf78be98345c09a3718c4152a6fa5e3c8c9edf11e4540cf07af05e3988fd6`.
+
 The exact Theorem 4.12 bound contains `exp(m/log(1/rho))`. A 13-point
 predeclared sweep verifies its scale directly:
 
@@ -25,4 +28,5 @@ claim. Without a machine-checkable sharper proof, a matching lower bound, or an
 assumption-satisfying counterexample, VERIFIED or FALSIFIED would be dishonest.
 
 [All 13 raw rows](https://huggingface.co/spaces/DineshAI/ppIhZgFCTI/resolve/main/evidence/claim4/results.csv) ·
-[current verifier](https://huggingface.co/spaces/DineshAI/ppIhZgFCTI/resolve/main/code/current_verifier.py).
+[current verifier](https://huggingface.co/spaces/DineshAI/ppIhZgFCTI/resolve/main/code/current_verifier.py) ·
+[factor-sweep source](https://huggingface.co/spaces/DineshAI/ppIhZgFCTI/resolve/main/code/theorem_audit.py).

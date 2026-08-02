@@ -48,6 +48,8 @@ has slope `-0.0052` and a variance floor near `0.1187`, so it is rejected.
 
 Code: [standalone verifier](https://huggingface.co/spaces/DineshAI/ppIhZgFCTI/resolve/main/code/current_verifier.py).
 Checker/control: [machine output](https://huggingface.co/spaces/DineshAI/ppIhZgFCTI/resolve/main/evidence/claim1/checks.json).
+[Proof replay output](https://huggingface.co/spaces/DineshAI/ppIhZgFCTI/resolve/main/evidence/claim1/proof_replay.json) ·
+[full generator source](https://huggingface.co/spaces/DineshAI/ppIhZgFCTI/resolve/main/code/claim1.py).
 
 ## Provenance and limitations
 
