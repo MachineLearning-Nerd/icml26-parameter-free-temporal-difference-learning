@@ -5,6 +5,7 @@ import json
 import os
 import platform
 import subprocess
+import sys
 import time
 from datetime import UTC, datetime
 from pathlib import Path
@@ -64,6 +65,13 @@ def main() -> int:
     claim1 = verify_claim1()
     theorem_claims = verify_theorem_audits()
     claim5 = verify_claim5()
+    visible_verifier = subprocess.run(
+        [sys.executable, str(ROOT / "space" / "code" / "current_verifier.py")],
+        cwd=ROOT,
+        text=True,
+        capture_output=True,
+        check=False,
+    )
     runtime = time.perf_counter() - started
     evidence = {
         "paper": "arXiv:2603.02577",
@@ -76,7 +84,13 @@ def main() -> int:
         "compute": cpu_allocation(),
         "deterministic_seeds": claim1["deterministic_seeds"],
         "claims": [claim1, *theorem_claims, claim5],
-        "all_claims_passed": claim1["passed"] and all(claim["passed"] for claim in theorem_claims) and claim5["passed"],
+        "evaluator_visible_verifier": {
+            "command": "python space/code/current_verifier.py",
+            "returncode": visible_verifier.returncode,
+            "stdout": visible_verifier.stdout.strip(),
+            "stderr": visible_verifier.stderr.strip(),
+        },
+        "all_claims_passed": claim1["passed"] and all(claim["passed"] for claim in theorem_claims) and claim5["passed"] and visible_verifier.returncode == 0,
         "total_runtime_seconds": runtime,
     }
     artifact_dir = ROOT / ".openresearch" / "artifacts" / "claim5"
@@ -88,6 +102,8 @@ def main() -> int:
         write_json(claim_dir / "raw" / "results.json", claim)
         if "independent_checker" in claim:
             write_json(claim_dir / "independent_checker_output.json", claim["independent_checker"])
+        if "proof_replay" in claim:
+            write_json(claim_dir / "proof_replay.json", claim["proof_replay"])
         if "negative_control" in claim:
             write_json(claim_dir / "negative_control_output.json", claim["negative_control"])
     print("OPENRESEARCH_EVIDENCE_BEGIN")

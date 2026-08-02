@@ -8,21 +8,21 @@ checker agrees, and a deliberately wrong control is rejected.
 
 | Claim | Canonical page | Status | Scope |
 | --- | --- | --- | --- |
-| 1 — i.i.d. TD(0) | Pending | BLOCKED | Exact theorem audit complete; full verifier pending |
-| 2 — Markovian TD(0) | Pending | BLOCKED | Exact theorem audit complete; full verifier pending |
-| 3 — regularized TD(0) | Pending | BLOCKED | Exact theorem audit complete; full verifier pending |
-| 4 — mixing dependence | Pending | BLOCKED | Paper states a conjectured proof artifact; verifier pending |
+| 1 — i.i.d. TD(0) | [Current verification](#/current-claim-1) | VERIFIED | Exact schedule, proof replay, 512 states, 64 features, 64 seeds |
+| 2 — Markovian TD(0) | [Current verification](#/current-claim-2) | VERIFIED | Exact omega dependency; convergence-horizon limitation disclosed |
+| 3 — regularized TD(0) | [Current verification](#/current-claim-3) | VERIFIED | Exact omega-free data flow; convergence-horizon limitation disclosed |
+| 4 — mixing dependence | [Current verification](#/current-claim-4) | BLOCKED | Exponential bound verified; proof-artifact interpretation is conjectural |
 | 5 — Definition 4.1 | [Current verification](#/current-claim-5) | VERIFIED | Exact definition; exhaustive initial states on 12 refresh chains |
 
 ## Visibility matrix
 
 | Claim | Canonical page | Code visible | Data inline | Raw link | Checker | Control | Exact claim tested | Reviewer verdict |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 1 | Pending | Missing | Missing | Missing | Missing | Missing | Pending | BLOCKED |
-| 2 | Pending | Missing | Missing | Missing | Missing | Missing | Pending | BLOCKED |
-| 3 | Pending | Missing | Missing | Missing | Missing | Missing | Pending | BLOCKED |
-| 4 | Pending | Missing | Missing | Missing | Missing | Missing | Pending | BLOCKED |
-| 5 | [Claim 5](#/current-claim-5) | [Python](../code/claim5_verifier.py) | Yes | [CSV](../evidence/claim5/results.csv) | Inline + [JSON](../evidence/claim5/checker.json) | Inline + [JSON](../evidence/claim5/control.json) | Yes | VERIFIED |
+| 1 | [Claim 1](#/current-claim-1) | Yes | Yes | CSV | Yes | Yes | Yes | VERIFIED |
+| 2 | [Claim 2](#/current-claim-2) | Yes | Yes | JSON | Yes | Yes | Yes | VERIFIED |
+| 3 | [Claim 3](#/current-claim-3) | Yes | Yes | JSON | Yes | Yes | Yes | VERIFIED |
+| 4 | [Claim 4](#/current-claim-4) | Yes | Yes | CSV | Yes | Yes | Yes | BLOCKED |
+| 5 | [Claim 5](#/current-claim-5) | [Python](https://huggingface.co/spaces/DineshAI/ppIhZgFCTI/resolve/main/code/claim5_verifier.py) | Yes | [CSV](https://huggingface.co/spaces/DineshAI/ppIhZgFCTI/resolve/main/evidence/claim5/results.csv) | Inline + JSON | Inline + JSON | Yes | VERIFIED |
 
 ## Historical evidence
 

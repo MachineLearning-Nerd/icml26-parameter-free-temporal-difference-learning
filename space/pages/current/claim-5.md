@@ -15,8 +15,8 @@ for every `delta in (0,1)`,
 Source: arXiv:2603.02577, Definition 4.1, LaTeX label `def:reg_mixing_time`,
 ar5iv anchor `S4.Thmtheorem1`. Retrieved 2026-08-02 with explicit User-Agent;
 HTML SHA-256 `028bf78be98345c09a3718c4152a6fa5e3c8c9edf11e4540cf07af05e3988fd6`.
-[Machine-readable contract](../evidence/claim5/claim_contract.json) and
-[source audit](../evidence/claim5/source_audit.md).
+[Machine-readable contract](https://huggingface.co/spaces/DineshAI/ppIhZgFCTI/resolve/main/evidence/claim5/claim_contract.json) and
+[source audit](https://huggingface.co/spaces/DineshAI/ppIhZgFCTI/resolve/main/evidence/claim5/source_audit.md).
 
 ## Assumptions and method
 
@@ -46,15 +46,15 @@ between directly evolved TV and the closed form was
 | 128 | 0.9375 | 0.05 | 47 | 47 | 0.0509650513 | 0.0477797356 |
 | 512 | 0.9375 | 0.001 | 108 | 108 | 0.0010001785 | 0.0009376673 |
 
-Download all 60 rows: [results.csv](../evidence/claim5/results.csv).
+Download all 60 rows: [results.csv](https://huggingface.co/spaces/DineshAI/ppIhZgFCTI/resolve/main/evidence/claim5/results.csv).
 
 ## Independent checker and negative control
 
 - Independent direct-TV checker: PASS; maximum discrepancy `5.584e-17`.
-  [Machine-readable output](../evidence/claim5/checker.json).
+  [Machine-readable output](https://huggingface.co/spaces/DineshAI/ppIhZgFCTI/resolve/main/evidence/claim5/checker.json).
 - Negative control: replace every answer by `tau_delta+1`. It was rejected on
-  **60/60** rows, as intended. [Machine-readable output](../evidence/claim5/control.json).
-- The [executable verifier](../code/claim5_verifier.py) exits nonzero if any
+  **60/60** rows, as intended. [Machine-readable output](https://huggingface.co/spaces/DineshAI/ppIhZgFCTI/resolve/main/evidence/claim5/control.json).
+- The [executable verifier](https://huggingface.co/spaces/DineshAI/ppIhZgFCTI/resolve/main/code/claim5_verifier.py) exits nonzero if any
   primary row, assumption audit, independent result, or negative control fails.
 
 ## Reproduction and provenance

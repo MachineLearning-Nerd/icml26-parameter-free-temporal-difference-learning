@@ -5,6 +5,8 @@ import time
 
 import numpy as np
 
+from td_repro.proof_replay import replay_theorem_3_4
+
 
 N_STATES = 512
 N_FEATURES = 64
@@ -187,6 +189,7 @@ def verify_claim1() -> dict:
     control_rows = simulate(control_problem, constant_step=True)
     control_slope = log_slope(control_rows)
     independent = scalar_independent_checker()
+    proof_replay = replay_theorem_3_4()
     assumptions_pass = all(
         item["assumptions"]["feature_rank"] == N_FEATURES
         and item["assumptions"]["max_feature_norm"] <= 1.0 + 1e-12
@@ -199,7 +202,7 @@ def verify_claim1() -> dict:
         for item in problems
     )
     negative_control_pass = control_slope > -0.25
-    passed = assumptions_pass and primary_pass and independent["passed"] and negative_control_pass
+    passed = assumptions_pass and primary_pass and independent["passed"] and proof_replay["passed"] and negative_control_pass
     return {
         "claim_id": "claim1",
         "verdict": "VERIFIED" if passed else "BLOCKED",
@@ -210,6 +213,7 @@ def verify_claim1() -> dict:
         "deterministic_seeds": [260302577, 271828, 314159, 1618033],
         "problems": problems,
         "independent_checker": independent,
+        "proof_replay": proof_replay,
         "negative_control": {
             "mutation": "replace exponential schedule by constant eta_t=eta0",
             "expected": "variance floor; final log-log slope greater than -0.25",

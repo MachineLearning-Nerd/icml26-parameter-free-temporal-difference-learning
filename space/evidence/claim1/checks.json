@@ -1,0 +1,8 @@
+{
+  "run_id": "95f8445d-21d1-417d-aa5e-bdf97e5a0a84",
+  "git_sha": "b592c39b47e584ab29cbcdfe4494d0f6b300895c",
+  "primary": {"rows": 12, "all_assumptions_pass": true, "all_95pct_intervals_below_explicit_bound": true},
+  "independent_checker": {"analytic_mse": 4.630302024170471e-6, "monte_carlo_mse": 4.63549652258647e-6, "standard_error": 4.675220139699921e-8, "absolute_z_score": 0.11110703369643184, "passed": true},
+  "negative_control": {"mutation": "constant eta_t=eta0", "slope": -0.005213191766080122, "expected": "variance floor", "passed_as_control": true},
+  "compute": {"estimated_cores": 16, "actual_cpus": 64, "cpu_model": "AMD EPYC 7R13 Processor", "flavor": "cpu-upgrade", "gpu_used": false, "scientific_runtime_seconds": 134.73571860208176, "job_duration": "2m38s"}
+}
