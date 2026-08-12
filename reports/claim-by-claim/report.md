@@ -108,9 +108,9 @@ score; the internal verdict column above describes the narrower machine-checkabl
 contracts, not additional judge credit.
 
 The winning scientific branch is
-[`orx/cumulative-proof-replay-and-evaluator-evidence`](https://github.com/MachineLearning-Nerd/icml26-repro-ppIhZgFCTI-towards-parameter-free-temporal-difference-learning/tree/orx/cumulative-proof-replay-and-evaluator-evidence).
+[`orx/cumulative-proof-replay-and-evaluator-evidence`](https://github.com/MachineLearning-Nerd/icml26-parameter-free-temporal-difference-learning/tree/48d7e7334484f027592bdb7afbef1053ef6db166).
 The release artifact is frozen on
-[`orx/publication-manifest-and-final-release-audit`](https://github.com/MachineLearning-Nerd/icml26-repro-ppIhZgFCTI-towards-parameter-free-temporal-difference-learning/tree/orx/publication-manifest-and-final-release-audit),
+[`orx/publication-manifest-and-final-release-audit`](https://github.com/MachineLearning-Nerd/icml26-parameter-free-temporal-difference-learning/tree/f879068316a1313360f411480d2540bf51666c77),
 and exact Space revision `ca74b23c1429bf2f3ae54320bb7289bcc8fb6b24` is
 independently re-downloaded and checked on
-[`orx/post-publication-exact-revision-verification`](https://github.com/MachineLearning-Nerd/icml26-repro-ppIhZgFCTI-towards-parameter-free-temporal-difference-learning/tree/orx/post-publication-exact-revision-verification).
+[`orx/post-publication-exact-revision-verification`](https://github.com/MachineLearning-Nerd/icml26-parameter-free-temporal-difference-learning/tree/0a750c33ab91de7b231ad11079510070a8ed496f).

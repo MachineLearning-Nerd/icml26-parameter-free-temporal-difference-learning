@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "openreview_id": "ppIhZgFCTI",
+  "phase": "claim_ledger_and_branch_normalization",
+  "next_action": "publish_normalized_repository_and_verify_remote_state",
+  "active_run_ids": [],
+  "completed_milestones": [
+    "source_archive_and_html_pinned",
+    "claim_1_exact_schedule_and_bound_audit",
+    "claim_2_omega_dependency_audit",
+    "claim_3_omega_removal_audit",
+    "claim_4_conjecture_boundary_audit",
+    "claim_5_definition_and_boundary_audit",
+    "live_6_of_10_judge_result",
+    "publication_revision_postcheck",
+    "claim_ledger_and_branch_audit"
+  ],
+  "failed_attempts": [],
+  "claim_attempt_counts": {
+    "1": 1,
+    "2": 1,
+    "3": 1,
+    "4": 1,
+    "5": 1
+  },
+  "publication_allowed": true,
+  "compute_policy": "recorded formal runs used Hugging Face cpu-upgrade; no GPU",
+  "github_repository": "https://github.com/MachineLearning-Nerd/icml26-parameter-free-temporal-difference-learning",
+  "former_github_repository": "https://github.com/MachineLearning-Nerd/icml26-repro-ppIhZgFCTI-towards-parameter-free-temporal-difference-learning",
+  "paper": {
+    "title": "Towards Parameter-Free Temporal Difference Learning",
+    "authors": ["Yunxiang Li", "Mark Schmidt", "Reza Babanezhad", "Sharan Vaswani"],
+    "arxiv": "2603.02577",
+    "openreview": "ppIhZgFCTI"
+  },
+  "live_judge": {
+    "score": "6/10",
+    "claim_verdicts": ["verified", "toy", "toy", "inconclusive", "verified"],
+    "space_revision": "ca74b23c1429bf2f3ae54320bb7289bcc8fb6b24"
+  }
+}

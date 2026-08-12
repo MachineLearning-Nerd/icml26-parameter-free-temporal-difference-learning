@@ -15,7 +15,7 @@ def _(mo):
     mo.md(r"""
     # Parameter-free TD learning, claim by claim
 
-    ![Exact schedule evidence](https://raw.githubusercontent.com/MachineLearning-Nerd/icml26-repro-ppIhZgFCTI-towards-parameter-free-temporal-difference-learning/main/reports/claim-by-claim/images/headline_td_scaling.svg)
+    ![Exact schedule evidence](https://raw.githubusercontent.com/MachineLearning-Nerd/icml26-parameter-free-temporal-difference-learning/main/reports/claim-by-claim/images/headline_td_scaling.svg)
 
     The central question is whether the last TD(0) iterate can balance bias and
     noise without knowing **omega**, the smallest feature-covariance eigenvalue.
@@ -61,7 +61,7 @@ def _(mo):
     historical verifier used the reciprocal `1/[8(1-gamma)]`; the current run
     corrects that source mismatch.
 
-    ![Omega dependency](https://raw.githubusercontent.com/MachineLearning-Nerd/icml26-repro-ppIhZgFCTI-towards-parameter-free-temporal-difference-learning/main/reports/claim-by-claim/images/omega_dependency.svg)
+    ![Omega dependency](https://raw.githubusercontent.com/MachineLearning-Nerd/icml26-parameter-free-temporal-difference-learning/main/reports/claim-by-claim/images/omega_dependency.svg)
     """)
     return
 
@@ -71,7 +71,7 @@ def _(mo):
     mo.md(r"""
     ## Why Claim 4 is blocked
 
-    ![Mixing factor](https://raw.githubusercontent.com/MachineLearning-Nerd/icml26-repro-ppIhZgFCTI-towards-parameter-free-temporal-difference-learning/main/reports/claim-by-claim/images/mixing_factor.svg)
+    ![Mixing factor](https://raw.githubusercontent.com/MachineLearning-Nerd/icml26-parameter-free-temporal-difference-learning/main/reports/claim-by-claim/images/mixing_factor.svg)
 
     The exponential factor is genuinely present in Theorem 4.12's bound. The
     paper then **conjectures** that it is a proof artifact. Finite experiments
@@ -79,7 +79,7 @@ def _(mo):
     BLOCKED.
 
     Formal evidence is already embedded here; rerunning the expensive experiment
-    is optional. See the [illustrated report](https://github.com/MachineLearning-Nerd/icml26-repro-ppIhZgFCTI-towards-parameter-free-temporal-difference-learning/blob/main/reports/claim-by-claim/report.md).
+    is optional. See the [illustrated report](https://github.com/MachineLearning-Nerd/icml26-parameter-free-temporal-difference-learning/blob/main/reports/claim-by-claim/report.md).
     """)
     return
 
