@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "openreview_id": "ppIhZgFCTI",
-  "phase": "claim_ledger_and_branch_normalization",
-  "next_action": "publish_normalized_repository_and_verify_remote_state",
+  "phase": "published_and_verified",
+  "next_action": "select_next_icml_repository",
   "active_run_ids": [],
   "completed_milestones": [
     "source_archive_and_html_pinned",
@@ -13,7 +13,8 @@
     "claim_5_definition_and_boundary_audit",
     "live_6_of_10_judge_result",
     "publication_revision_postcheck",
-    "claim_ledger_and_branch_audit"
+    "claim_ledger_and_branch_audit",
+    "github_rename_history_normalization_and_remote_verification"
   ],
   "failed_attempts": [],
   "claim_attempt_counts": {
@@ -24,6 +25,8 @@
     "5": 1
   },
   "publication_allowed": true,
+  "last_checkpoint": "2026-08-12T19:10:02Z",
+  "last_known_git_commit": "b5a33cc959b3b67514635d852f2b55773fc80721",
   "compute_policy": "recorded formal runs used Hugging Face cpu-upgrade; no GPU",
   "github_repository": "https://github.com/MachineLearning-Nerd/icml26-parameter-free-temporal-difference-learning",
   "former_github_repository": "https://github.com/MachineLearning-Nerd/icml26-repro-ppIhZgFCTI-towards-parameter-free-temporal-difference-learning",
